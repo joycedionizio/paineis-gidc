@@ -1,0 +1,179 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "6f4ef771a08b7eec7e17",
+  "displayName": "panorama atual",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "pageBinding": {
+    "name": "Pod1",
+    "type": "Default",
+    "parameters": []
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFFFFF'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "inputBoxColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F9FB'"
+                  }
+                }
+              }
+            }
+          },
+          "border": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "borderColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F9FB'"
+                  }
+                }
+              }
+            }
+          },
+          "width": {
+            "expr": {
+              "Literal": {
+                "Value": "192L"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "8de0989c004ba7c22246",
+      "type": "NoFilter"
+    },
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "d654d9a850dc78c12543",
+      "type": "NoFilter"
+    },
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "1e73426470973a4c0042",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "99b69ad26d830c8dc804",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "e4db5c2042dec02704dd",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "b70e9d1cac582e1608bc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "4c522c856749c99ea067",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "d654d9a850dc78c12543",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "8de0989c004ba7c22246",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "8d15b157087639dcdba3",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "da5f22989e9458205268",
+      "type": "DataFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "1e73426470973a4c0042",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "9f5033620b39911dc068",
+      "type": "NoFilter"
+    },
+    {
+      "source": "e7e460052d00b1e32b21",
+      "target": "21e6d652d2841a5bac31",
+      "type": "DataFilter"
+    },
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "e4db5c2042dec02704dd",
+      "type": "NoFilter"
+    },
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "b70e9d1cac582e1608bc",
+      "type": "NoFilter"
+    },
+    {
+      "source": "21e6d652d2841a5bac31",
+      "target": "da5f22989e9458205268",
+      "type": "NoFilter"
+    }
+  ]
+}

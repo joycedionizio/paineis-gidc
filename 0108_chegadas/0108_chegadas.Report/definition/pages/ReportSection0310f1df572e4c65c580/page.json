@@ -1,0 +1,137 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "ReportSection0310f1df572e4c65c580",
+  "displayName": "via de acesso",
+  "displayOption": "FitToPage",
+  "height": 1080,
+  "width": 1920,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#FFFFFF'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "ThemeDataColor": {
+                    "ColorId": 0,
+                    "Percent": 0
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "inputBoxColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F9FB'"
+                  }
+                }
+              }
+            }
+          },
+          "border": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "borderColor": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#F2F9FB'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "eb0f5ad590a503174702",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "c25b2b22d7913df9e028",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "a3627ba9ab8fdeb28d5e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "924157771ac16d4d7990",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "a35594f7ebd51a95d81e",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "7c886ff8920eb85e833c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "0be6d84826aea9775414",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "1c91dd31589e490497e8",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "8ec5302318bcd49c1c7c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "108b6a7a54d758051d39",
+      "type": "NoFilter"
+    },
+    {
+      "source": "08b95865dfb423db47cb",
+      "target": "7533b7b1329d664c4e1c",
+      "type": "NoFilter"
+    }
+  ]
+}

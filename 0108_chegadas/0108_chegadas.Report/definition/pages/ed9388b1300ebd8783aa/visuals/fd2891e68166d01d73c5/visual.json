@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "fd2891e68166d01d73c5",
+  "position": {
+    "x": 1625.6907272235755,
+    "y": 233.8922681805895,
+    "z": 25000,
+    "height": 20.37037037037037,
+    "width": 241.66666666666666,
+    "tabOrder": 25000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "total ",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "14.6667px"
+                    }
+                  },
+                  {
+                    "value": "chegadas do melhor ano",
+                    "textStyle": {
+                      "fontSize": "14.6667px"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

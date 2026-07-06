@@ -1,0 +1,185 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "ea62f43596e23a268361",
+  "position": {
+    "x": 279.14893617021278,
+    "y": 82.674772036474167,
+    "z": 0,
+    "height": 472.70516717325228,
+    "width": 759.63525835866267,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dbmtur chegadas_2013_2023"
+                    }
+                  },
+                  "Property": "pais"
+                }
+              },
+              "queryRef": "dbmtur chegadas_2013_2023.pais",
+              "nativeQueryRef": "pais"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dbmtur chegadas_2013_2023"
+                    }
+                  },
+                  "Property": "continente"
+                }
+              },
+              "queryRef": "dbmtur chegadas_2013_2023.continente",
+              "nativeQueryRef": "continente"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "dbmtur chegadas_2013_2023"
+                        }
+                      },
+                      "Property": "total_chegadas"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(dbmtur chegadas_2013_2023.total_chegadas)",
+              "nativeQueryRef": "Soma de total_chegadas"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "dbmtur chegadas_2013_2023"
+                    }
+                  },
+                  "Property": "ano"
+                }
+              },
+              "queryRef": "dbmtur chegadas_2013_2023.ano",
+              "nativeQueryRef": "ano"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "dbmtur chegadas_2013_2023"
+                      }
+                    },
+                    "Property": "total_chegadas"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6b70467c52c0d7c6a4cf",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "dbmtur chegadas_2013_2023"
+              }
+            },
+            "Property": "ano"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "dbmtur chegadas_2013_2023",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "ano"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2024L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2025L"
+                        }
+                      }
+                    ],
+                    [
+                      {
+                        "Literal": {
+                          "Value": "2026L"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {}
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

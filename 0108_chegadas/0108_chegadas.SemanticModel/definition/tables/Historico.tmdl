@@ -1,0 +1,36 @@
+table Historico
+	lineageTag: 8fea5e26-0aa4-4816-8d44-d02e70d6dde8
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 91b55087-b59d-4782-8f1e-de734a221933
+		summarizeBy: none
+		sourceColumn: ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column total
+		dataType: int64
+		formatString: #,0
+		lineageTag: 17131907-7c5a-4951-aede-43003b044e77
+		summarizeBy: sum
+		sourceColumn: total
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Historico = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\daniele.barros\Documents\mtur\Chegadas de turistas internacionais ao Brasil, segundo os anos - 1970-2019.xlsx"), null, true),
+				    Página1_Sheet = Fonte{[Item="Página1",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(Página1_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ano", Int64.Type}, {"total", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Exception
+
+	annotation PBI_NavigationStepName = Navegação
+

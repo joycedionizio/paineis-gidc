@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2a4888e393a193061586",
+  "position": {
+    "x": 148.05194805194805,
+    "y": 199.48051948051946,
+    "z": 26000,
+    "height": 37.4025974025974,
+    "width": 285.19480519480516,
+    "tabOrder": 26000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "total de chegadas",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "18.6667px"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

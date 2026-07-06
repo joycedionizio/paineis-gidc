@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "Report",
+    "displayName": "0108_chegadas"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "06eb3b2f-dd8a-4de0-8039-b90a43d93279"
+  }
+}

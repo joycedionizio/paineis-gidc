@@ -1,0 +1,103 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5b4c8bb6d90a0c2cee70",
+  "position": {
+    "x": 1293.4085414987912,
+    "y": 931.37792103142624,
+    "z": 43000,
+    "height": 41.772763900080577,
+    "width": 202.67526188557613,
+    "tabOrder": 43000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "total",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": " de chegadas em 2025"
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "("
+                  },
+                  {
+                    "value": "até ",
+                    "textStyle": {
+                      "fontSize": "13.3333px"
+                    }
+                  },
+                  {
+                    "value": "mês",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "13.3333px"
+                    }
+                  },
+                  {
+                    "value": " selecionado)",
+                    "textStyle": {
+                      "fontSize": "13.3333px"
+                    }
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "padding": [
+        {
+          "properties": {
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "top": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

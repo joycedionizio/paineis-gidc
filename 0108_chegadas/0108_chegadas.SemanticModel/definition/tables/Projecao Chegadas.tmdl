@@ -1,0 +1,58 @@
+table 'Projecao Chegadas'
+	lineageTag: cb50479b-72b7-4279-a1df-417a2a83cf20
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 0e54e44f-ba54-4097-bb19-c3674ee9eab5
+		summarizeBy: sum
+		sourceColumn: ano
+
+		annotation SummarizationSetBy = Automatic
+
+	column estimativa
+		dataType: int64
+		formatString: #,0
+		lineageTag: 6a067f36-33c9-4caf-8770-eab7bd387ed5
+		summarizeBy: sum
+		sourceColumn: estimativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column fonte
+		dataType: string
+		lineageTag: f3e315c5-3512-45e9-a3a7-c0e4e70886e0
+		summarizeBy: none
+		sourceColumn: fonte
+
+		annotation SummarizationSetBy = Automatic
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4218c41f-e541-4580-a834-dd91719519a1
+		summarizeBy: none
+		sourceColumn: data
+
+		variation Variation
+			isDefault
+			relationship: dcd2b26e-5aab-45e8-8d11-623c7e32c0ad
+			defaultHierarchy: LocalDateTable_09bd2c32-8ac5-4450-82c4-be8c618b5949.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Projecao Chegadas' = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Public\Documents\mtur\chegadas\previsao.xlsx"), null, true),
+				    previsao_Sheet = Fonte{[Item="previsao",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(previsao_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ano", Int64.Type}, {"estimativa", Int64.Type}, {"fonte", type text}, {"data", type date}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

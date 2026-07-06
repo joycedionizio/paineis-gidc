@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "0108_chegadas"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "8b7eb8f5-fdd2-42dd-9700-390c2af18a03"
+  }
+}

@@ -1,0 +1,31 @@
+model Model
+	culture: pt-BR
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: pt-BR
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Historico","dbmtur chegadas_2013_2023","Medidas","Projecao Chegadas","estado_sem_acento","dt_atualizacao"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table DateTableTemplate_3a663009-b15c-4cc4-8ea9-6f23a33a1015
+ref table Historico
+ref table 'dbmtur chegadas_2013_2023'
+ref table LocalDateTable_f9e3dd8f-1f55-47b3-b0dd-396e09adaff1
+ref table Calendario
+ref table Medidas
+ref table LocalDateTable_3056c404-61cf-4a1a-a147-173edb02a9f2
+ref table 'Projecao Chegadas'
+ref table LocalDateTable_09bd2c32-8ac5-4450-82c4-be8c618b5949
+ref table 'Ranking Portões por Via'
+ref table estado_sem_acento
+ref table Tabela_Combinada
+ref table dt_atualizacao
+ref table LocalDateTable_78774f00-814e-4e84-8596-9191fb22156b
+
+ref cultureInfo pt-BR
+

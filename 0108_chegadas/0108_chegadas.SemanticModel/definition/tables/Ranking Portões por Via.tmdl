@@ -1,0 +1,66 @@
+table 'Ranking Portões por Via'
+	lineageTag: 762ad456-bcfd-4d6e-8036-eb1f80beb8a0
+
+	column via_de_acesso
+		lineageTag: 893048ea-31aa-49ad-9f0d-0f890f3ec31f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dbmtur chegadas_2013_2023[via_de_acesso]
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		lineageTag: b2bff26f-918f-423c-a5bd-015de50aa603
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: dbmtur chegadas_2013_2023[UF]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Total Chegadas'
+		formatString: #,0
+		lineageTag: da6a4036-f913-43c8-af4c-9fcad5f2e53d
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Total Chegadas]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rank
+		dataType: string
+		lineageTag: e3934cda-c8e8-4bea-8570-d7d0ff8da9e6
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Rank]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ranking Portões por Via' = calculated
+		mode: import
+		source =
+				
+				ADDCOLUMNS (
+				    SUMMARIZE (
+				        'dbmtur chegadas_2013_2023',
+				        'dbmtur chegadas_2013_2023'[via_de_acesso],
+				        'dbmtur chegadas_2013_2023'[UF]
+				    ),
+				    "Total Chegadas", CALCULATE(SUM('dbmtur chegadas_2013_2023'[total_chegadas])),
+				    "Rank", RANKX(
+				        FILTER(
+				            SUMMARIZE (
+				                'dbmtur chegadas_2013_2023',
+				                'dbmtur chegadas_2013_2023'[via_de_acesso],
+				                'dbmtur chegadas_2013_2023'[UF]
+				            ),
+				            'dbmtur chegadas_2013_2023'[via_de_acesso] = EARLIER('dbmtur chegadas_2013_2023'[via_de_acesso])
+				        ),
+				        CALCULATE(SUM('dbmtur chegadas_2013_2023'[total_chegadas])),
+				        ,
+				        DESC,
+				        DENSE
+				    )
+				)
+
+	annotation PBI_Id = c5c5d2542aea45d2878e354339c734e0
+

@@ -1,0 +1,326 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5da1b8608759de1dcd10",
+  "position": {
+    "x": 433.33333333333337,
+    "y": 211.11111111111111,
+    "z": 2000,
+    "height": 668.05555555555554,
+    "width": 1108.3333333333335,
+    "tabOrder": 2000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Este é o Dicionário de Dados do Painel de Chegadas da Embratur.",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "1. Emissor",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "País de origem do turista. Em caso de estrangeiros, é a sua ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  },
+                  {
+                    "value": "nacionalidade",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  },
+                  {
+                    "value": ", em caso de brasileiros, o seu ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  },
+                  {
+                    "value": "país de residência",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  },
+                  {
+                    "value": ".",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "2. Portão de entrada",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "É o local pelo qual o turista acessou o país.",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "3. Turista",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Um visitante (doméstico, nacional ou internacional) é classificado como turista se a sua viagem incluir uma pernoite. ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "4. Turista internacional",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "O conceito de turista internacional parte da junção do número de turistas estrangeiros com os turistas brasileiros que moram no exterior e visitam o Brasil.",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "horizontalTextAlignment": "center"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "5. Via de acesso",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "São as formas de chegada do viajante ao país, elas se dividem em:",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "a. Aérea",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "b. Fluvial",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "c. Marítima",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "d. Terrestre",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Para mais informações, acesse: ",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    }
+                  },
+                  {
+                    "value": "https://www.unwto.org/glossary-tourism-terms#T",
+                    "textStyle": {
+                      "fontSize": "16pt",
+                      "color": "#e6605b"
+                    },
+                    "url": "https://www.unwto.org/glossary-tourism-terms#T"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "background": [
+        {
+          "properties": {
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F9F3F0'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

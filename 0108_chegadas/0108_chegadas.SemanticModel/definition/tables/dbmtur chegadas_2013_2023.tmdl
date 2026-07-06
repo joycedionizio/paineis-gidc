@@ -1,0 +1,174 @@
+table 'dbmtur chegadas_2013_2023'
+	lineageTag: 1682073f-a503-491e-9218-f50c3caf2b0c
+
+	measure m_total_chegadas = SUM('dbmtur chegadas_2013_2023'[total_chegadas])
+		formatString: #,0
+		lineageTag: fe6c000c-e56d-460e-ada3-7cdf9f9f246e
+
+	column id
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d0ea290-5106-4edd-bb02-9733e5c7541c
+		summarizeBy: sum
+		sourceColumn: id
+
+		annotation SummarizationSetBy = Automatic
+
+	column continente
+		dataType: string
+		lineageTag: 0efeba26-ef35-4bbb-8291-0575c6771374
+		summarizeBy: none
+		sourceColumn: continente
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais
+		dataType: string
+		lineageTag: dca1ee30-d8c4-4d28-8fc0-6cd58f260a43
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: pais
+
+		annotation SummarizationSetBy = Automatic
+
+	column UF
+		dataType: string
+		lineageTag: 373b09fc-ff72-4e28-aa33-109073002308
+		dataCategory: Uncategorized
+		summarizeBy: none
+		sourceColumn: UF
+
+		annotation SummarizationSetBy = Automatic
+
+	column via_de_acesso
+		dataType: string
+		lineageTag: 31c0aeb0-fdca-4559-bb90-c99341a3b104
+		summarizeBy: none
+		sourceColumn: via_de_acesso
+
+		annotation SummarizationSetBy = Automatic
+
+	column ano
+		dataType: int64
+		formatString: 0
+		lineageTag: 8aa5bc09-7fd0-4d3e-ae03-572acac8790e
+		summarizeBy: none
+		sourceColumn: ano
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes
+		dataType: int64
+		formatString: 0
+		lineageTag: ea1580a4-3c75-4aa6-b222-e97ae033d74f
+		summarizeBy: none
+		sourceColumn: mes
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = User
+
+	column data
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: e433888d-8e6b-4195-a3d4-6e3217260798
+		summarizeBy: none
+		sourceColumn: data
+
+		variation Variation
+			isDefault
+			relationship: 498e24dc-f142-4be3-9441-63448ce5eabf
+			defaultHierarchy: LocalDateTable_f9e3dd8f-1f55-47b3-b0dd-396e09adaff1.'Hierarquia de datas'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column total_chegadas
+		dataType: int64
+		formatString: #,0
+		lineageTag: c86c0b27-771c-4350-9999-ed1f729f958e
+		summarizeBy: sum
+		sourceColumn: total_chegadas
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado
+		dataType: string
+		lineageTag: c2963c72-b469-47a6-92b1-c41d2047d200
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column estado_sem_acento
+		dataType: string
+		lineageTag: 1da5158a-1bb3-4bb0-a20b-46bd518e576d
+		summarizeBy: none
+		sourceColumn: estado_sem_acento
+
+		annotation SummarizationSetBy = Automatic
+
+	column mes_nome
+		dataType: string
+		lineageTag: 44cfe279-3c4e-4c40-b028-ba8674a838e1
+		summarizeBy: none
+		sourceColumn: mes_nome
+		sortByColumn: mes
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column pais_mapa
+		dataType: string
+		lineageTag: 54d66bf0-fe97-4b25-85c3-b89a016f01c7
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: pais_mapa
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'dbmtur chegadas_2013_2023' = m
+		mode: import
+		source = ```
+				let
+				    Fonte = MySQL.Database("192.168.62.75:3306", "dbmtur", [ReturnSingleDatabase=true]),
+				    dbmtur_chegadas_2013_2023 = Fonte{[Schema="dbmtur",Item="chegadas_2013_2023"]}[Data],
+				    #"Personalização Adicionada" = Table.AddColumn(dbmtur_chegadas_2013_2023, "estado", each Text.BeforeDelimiter([UF], " (") & Text.Select(Text.Middle([UF], Text.PositionOf([UF], "(") + 1, 2), {"A".."Z"})),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Personalização Adicionada",{"estado"}),
+				    #"Personalização Adicionada1" = Table.AddColumn(#"Colunas Removidas", "estado", each Text.TrimEnd(Text.BeforeDelimiter([UF], " ("))),
+				    #"Personalização Adicionada2" = Table.AddColumn(#"Personalização Adicionada1", "estado_final", each Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace(Text.Replace([estado],"á","a"),"é","e"),"í","i"),"ó","o"),"ú","u"),"â","a"),"ê","e"),"î","i"),"ô","o"),"û","u"),"ã","a"),"õ","o"),"à","a"),"è","e"),"ì","i"),"ò","o"),"ù","u"),"ä","a"),"ë","e")),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Personalização Adicionada2",{{"estado_final", "estado_sem_acento"}}),
+				    #"Personalização Adicionada3" = Table.AddColumn(#"Colunas Renomeadas", "mes_nome", each if [mes] = "1" then "Janeiro" 
+				  else if [mes] = "2" then "Fevereiro"
+				  else if [mes] = "3" then "Março"
+				  else if [mes] = "4" then "Abril"
+				  else if [mes] = "5" then "Maio"
+				  else if [mes] = "6" then "Junho"
+				  else if [mes] = "7" then "Julho"
+				  else if [mes] = "8" then "Agosto"
+				  else if [mes] = "9" then "Setembro"
+				  else if [mes] = "10" then "Outubro"
+				  else if [mes] = "11" then "Novembro"
+				  else if [mes] = "12" then "Dezembro"
+				  else "Desconhecido"),
+				    #"Personalização Adicionada4" = Table.AddColumn(#"Personalização Adicionada3", "pais_mapa", each if [pais] = "Antilhas Holandesas" then "Caribbean Netherlands"
+				else if [pais] = "Palestina" then "Palestinian Territory"
+				else if [pais] = "Republica do Kosovo" then "Kosovo"
+				else [pais]),
+				    #"Valor Substituído" = Table.ReplaceValue(#"Personalização Adicionada4","Republica do Kosovo","Kosovo",Replacer.ReplaceText,{"pais_mapa"}),
+				    #"Valor Substituído1" = Table.ReplaceValue(#"Valor Substituído","República do Kosovo","Kosovo",Replacer.ReplaceText,{"pais_mapa"}),
+				    #"Valor Substituído2" = Table.ReplaceValue(#"Valor Substituído1","Palestinian Territory","West Bank",Replacer.ReplaceText,{"pais_mapa"})
+				in
+				    #"Valor Substituído2"
+				```
+
+	annotation PBI_ResultType = Table
+

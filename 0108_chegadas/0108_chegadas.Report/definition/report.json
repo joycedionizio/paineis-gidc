@@ -1,0 +1,320 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU02",
+      "reportVersionAtImport": {
+        "visual": "1.8.89",
+        "report": "2.0.89",
+        "page": "1.3.89"
+      },
+      "type": "SharedResources"
+    },
+    "customTheme": {
+      "name": "Storm14220750118227277.json",
+      "reportVersionAtImport": {
+        "visual": "1.8.89",
+        "report": "2.0.89",
+        "page": "1.3.89"
+      },
+      "type": "RegisteredResources"
+    }
+  },
+  "objects": {
+    "section": [
+      {
+        "properties": {
+          "verticalAlignment": {
+            "expr": {
+              "Literal": {
+                "Value": "'Top'"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          },
+          "visible": {
+            "expr": {
+              "Literal": {
+                "Value": "true"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "publicCustomVisuals": [
+    "heatmapF244EA9EE1F34E828A80CF19B41976F8",
+    "iconMapV34089C0EB522B416294AA926F71B4FDBB",
+    "WordCloud1447959067750"
+  ],
+  "resourcePackages": [
+    {
+      "name": "RegisteredResources",
+      "type": "RegisteredResources",
+      "items": [
+        {
+          "name": "Bota_o_-_cena_rios_futuros3953996860015272.png",
+          "path": "Bota_o_-_cena_rios_futuros3953996860015272.png",
+          "type": "Image"
+        },
+        {
+          "name": "Bota_o_-_chegadas_mensais2249723131824135.png",
+          "path": "Bota_o_-_chegadas_mensais2249723131824135.png",
+          "type": "Image"
+        },
+        {
+          "name": "Bota_o_-_pai_ses_e_continentes911462984953834.png",
+          "path": "Bota_o_-_pai_ses_e_continentes911462984953834.png",
+          "type": "Image"
+        },
+        {
+          "name": "Bota_o_-_panorama_atual9848258495161235.png",
+          "path": "Bota_o_-_panorama_atual9848258495161235.png",
+          "type": "Image"
+        },
+        {
+          "name": "Bota_o_-_porto_es_de_entrada1631921355982433.png",
+          "path": "Bota_o_-_porto_es_de_entrada1631921355982433.png",
+          "type": "Image"
+        },
+        {
+          "name": "Bota_o_-_via_de_acesso20424865202067521.png",
+          "path": "Bota_o_-_via_de_acesso20424865202067521.png",
+          "type": "Image"
+        },
+        {
+          "name": "cena_rios_futuros_-_preenchido37939625308405955.png",
+          "path": "cena_rios_futuros_-_preenchido37939625308405955.png",
+          "type": "Image"
+        },
+        {
+          "name": "cena_rios_futuros_-_vazado49228860773771577.png",
+          "path": "cena_rios_futuros_-_vazado49228860773771577.png",
+          "type": "Image"
+        },
+        {
+          "name": "chegada_de_turistas15424968395082583.png",
+          "path": "chegada_de_turistas15424968395082583.png",
+          "type": "Image"
+        },
+        {
+          "name": "chegadas_(3)6555069317055213.png",
+          "path": "chegadas_(3)6555069317055213.png",
+          "type": "Image"
+        },
+        {
+          "name": "chegadas_mensais_-_preenchido41851676000634086.png",
+          "path": "chegadas_mensais_-_preenchido41851676000634086.png",
+          "type": "Image"
+        },
+        {
+          "name": "chegadas_mensais_-_vazado12079186874478309.png",
+          "path": "chegadas_mensais_-_vazado12079186874478309.png",
+          "type": "Image"
+        },
+        {
+          "name": "chegadas_total020307248510399667.png",
+          "path": "chegadas_total020307248510399667.png",
+          "type": "Image"
+        },
+        {
+          "name": "cre_ditos_-_preenchido44663785660566635.png",
+          "path": "cre_ditos_-_preenchido44663785660566635.png",
+          "type": "Image"
+        },
+        {
+          "name": "cre_ditos_-_vazado15130825015875993.png",
+          "path": "cre_ditos_-_vazado15130825015875993.png",
+          "type": "Image"
+        },
+        {
+          "name": "diciona_rio_de_dados469966661212605.png",
+          "path": "diciona_rio_de_dados469966661212605.png",
+          "type": "Image"
+        },
+        {
+          "name": "fluvial_novo5431940779060722.png",
+          "path": "fluvial_novo5431940779060722.png",
+          "type": "Image"
+        },
+        {
+          "name": "Ini_cio_-_vazado7954595147000028.png",
+          "path": "Ini_cio_-_vazado7954595147000028.png",
+          "type": "Image"
+        },
+        {
+          "name": "linha_de_tempo_-_preenchido907028624647771.png",
+          "path": "linha_de_tempo_-_preenchido907028624647771.png",
+          "type": "Image"
+        },
+        {
+          "name": "linha_de_tempo_-_vazado_(1)32476673257590694.png",
+          "path": "linha_de_tempo_-_vazado_(1)32476673257590694.png",
+          "type": "Image"
+        },
+        {
+          "name": "linha_do_tempo_(1)6749579369356509.png",
+          "path": "linha_do_tempo_(1)6749579369356509.png",
+          "type": "Image"
+        },
+        {
+          "name": "logo_Mtur_e_Poli_cia_Federal8016245467500789.png",
+          "path": "logo_Mtur_e_Poli_cia_Federal8016245467500789.png",
+          "type": "Image"
+        },
+        {
+          "name": "maior_chegada0926582944963723.png",
+          "path": "maior_chegada0926582944963723.png",
+          "type": "Image"
+        },
+        {
+          "name": "Marca_ver_o_positiva_colorida_2031291375413109.png",
+          "path": "Marca_ver_o_positiva_colorida_2031291375413109.png",
+          "type": "Image"
+        },
+        {
+          "name": "mari_tima_novo2693444022028333.png",
+          "path": "mari_tima_novo2693444022028333.png",
+          "type": "Image"
+        },
+        {
+          "name": "meio_fluvial9654164822238689.png",
+          "path": "meio_fluvial9654164822238689.png",
+          "type": "Image"
+        },
+        {
+          "name": "meio_mar_timo2900115095900566.png",
+          "path": "meio_mar_timo2900115095900566.png",
+          "type": "Image"
+        },
+        {
+          "name": "meio_terrestre3217754948895122.png",
+          "path": "meio_terrestre3217754948895122.png",
+          "type": "Image"
+        },
+        {
+          "name": "melhor_ano008164167807621192.png",
+          "path": "melhor_ano008164167807621192.png",
+          "type": "Image"
+        },
+        {
+          "name": "pai_ses_e_continentes_-_preenc686671963872773.png",
+          "path": "pai_ses_e_continentes_-_preenc686671963872773.png",
+          "type": "Image"
+        },
+        {
+          "name": "pai_ses_e_continentes-_vazado7866565710430744.png",
+          "path": "pai_ses_e_continentes-_vazado7866565710430744.png",
+          "type": "Image"
+        },
+        {
+          "name": "panorama_atual_-_panorama_atua6223595403210278.png",
+          "path": "panorama_atual_-_panorama_atua6223595403210278.png",
+          "type": "Image"
+        },
+        {
+          "name": "panorama_atual_-_vazado_(1)5490002715627511.png",
+          "path": "panorama_atual_-_vazado_(1)5490002715627511.png",
+          "type": "Image"
+        },
+        {
+          "name": "porto_es_de_entrada-_preenchid38148099944789715.png",
+          "path": "porto_es_de_entrada-_preenchid38148099944789715.png",
+          "type": "Image"
+        },
+        {
+          "name": "porto_es_de_entrada-_vazado5088934608439746.png",
+          "path": "porto_es_de_entrada-_vazado5088934608439746.png",
+          "type": "Image"
+        },
+        {
+          "name": "Storm14220750118227277.json",
+          "path": "Storm14220750118227277.json",
+          "type": "Image"
+        },
+        {
+          "name": "terrestre_novo1636543399217698.png",
+          "path": "terrestre_novo1636543399217698.png",
+          "type": "Image"
+        },
+        {
+          "name": "variac_a_o_me_s_(1)27028081438841967.png",
+          "path": "variac_a_o_me_s_(1)27028081438841967.png",
+          "type": "Image"
+        },
+        {
+          "name": "variac_a_o37614925228103124.png",
+          "path": "variac_a_o37614925228103124.png",
+          "type": "Image"
+        },
+        {
+          "name": "via_de_acesso_-_vazado8220304884143621.png",
+          "path": "via_de_acesso_-_vazado8220304884143621.png",
+          "type": "Image"
+        },
+        {
+          "name": "via_de_acesso-_preenchido7720832434528746.png",
+          "path": "via_de_acesso-_preenchido7720832434528746.png",
+          "type": "Image"
+        },
+        {
+          "name": "voos_(1)8715252493041599.png",
+          "path": "voos_(1)8715252493041599.png",
+          "type": "Image"
+        },
+        {
+          "name": "voos_novo5391632684016539.png",
+          "path": "voos_novo5391632684016539.png",
+          "type": "Image"
+        }
+      ]
+    },
+    {
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
+        {
+          "name": "brazil.states.topo",
+          "path": "Shapemaps/brazil.states.topo.json",
+          "type": "ShapeMap"
+        },
+        {
+          "name": "CY24SU02",
+          "path": "BaseThemes/CY24SU02.json",
+          "type": "BaseTheme"
+        }
+      ]
+    }
+  ],
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": true,
+    "useScaledTooltips": true,
+    "useDefaultAggregateDisplayName": true,
+    "customMemoryLimit": "1048576",
+    "customTimeoutLimit": "225"
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
+}

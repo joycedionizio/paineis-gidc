@@ -1,0 +1,38 @@
+relationship 498e24dc-f142-4be3-9441-63448ce5eabf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'dbmtur chegadas_2013_2023'.data
+	toColumn: LocalDateTable_f9e3dd8f-1f55-47b3-b0dd-396e09adaff1.Date
+
+relationship 813f3cd0-9a43-4cfd-8913-50c5a9a4a893
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_3056c404-61cf-4a1a-a147-173edb02a9f2.Date
+
+relationship dcd2b26e-5aab-45e8-8d11-623c7e32c0ad
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Projecao Chegadas'.data
+	toColumn: LocalDateTable_09bd2c32-8ac5-4450-82c4-be8c618b5949.Date
+
+relationship 9cd26357-d894-49ea-b25b-fd38e7690526
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'dbmtur chegadas_2013_2023'.ano
+	toColumn: Historico.ano
+
+relationship 5c651a62-a2ec-4f1d-8269-efd8372796c3
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: estado_sem_acento.estado
+	toColumn: 'dbmtur chegadas_2013_2023'.estado
+
+relationship b7dc0b54-86b5-ec5f-b6f8-3686ebe60fa9
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: 'dbmtur chegadas_2013_2023'.via_de_acesso
+	toColumn: 'Ranking Portões por Via'.via_de_acesso
+
+relationship a8f731a3-a004-4f9e-881a-feef349ede8d
+	joinOnDateBehavior: datePartOnly
+	fromColumn: dt_atualizacao.data_atualizacao
+	toColumn: LocalDateTable_78774f00-814e-4e84-8596-9191fb22156b.Date
+

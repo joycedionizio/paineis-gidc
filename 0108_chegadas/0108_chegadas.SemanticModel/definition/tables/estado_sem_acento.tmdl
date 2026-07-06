@@ -1,0 +1,49 @@
+table estado_sem_acento
+	lineageTag: fdc46a4c-e172-4590-bdbf-1ea729fe7974
+
+	column estado
+		dataType: string
+		lineageTag: 0ac01d68-65fb-42f1-a047-073ea6a834fa
+		summarizeBy: none
+		sourceColumn: estado
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitude
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b498da-02e5-42e0-a51d-bbe1b018ca20
+		summarizeBy: none
+		sourceColumn: latitude
+
+		annotation SummarizationSetBy = User
+
+	column longitude
+		dataType: int64
+		formatString: 0
+		lineageTag: 69eff0a9-7fc1-4f92-8035-0334495f759b
+		summarizeBy: sum
+		sourceColumn: longitude
+
+		annotation SummarizationSetBy = Automatic
+
+	hierarchy 'estado Hierarquia'
+		lineageTag: 82a76c0c-5d18-4ba4-9a52-f12d0111199b
+
+		level estado
+			lineageTag: a4b28816-70d6-4345-9638-9ea58a6286f5
+			column: estado
+
+	partition estado_sem_acento = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Public\Documents\mtur\chegadas\estado_latitude_longitude.xlsx"), null, true),
+				    estado_sem_acento_Sheet = Fonte{[Item="estado_sem_acento",Kind="Sheet"]}[Data],
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(estado_sem_acento_Sheet, [PromoteAllScalars=true]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"estado", type text}, {"latitude", Int64.Type}, {"longitude", Int64.Type}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_ResultType = Table
+

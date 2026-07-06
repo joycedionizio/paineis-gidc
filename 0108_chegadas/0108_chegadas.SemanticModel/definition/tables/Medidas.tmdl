@@ -1,0 +1,388 @@
+table Medidas
+	lineageTag: b4e86833-e9c8-4e2b-a046-21c928345eec
+
+	measure TotalChegadas2023 =
+			
+			CALCULATE (
+			    SUM (Historico[total]),
+			    Historico[ano] = 2023
+			)
+		formatString: 0
+		lineageTag: e34b29ca-0095-48a8-8f37-e54729650579
+
+	measure 'Est 2024 Chegadas Global' =
+			
+			CALCULATE (
+			    SUM('Projecao Chegadas'[estimativa]), 'Projecao Chegadas'[ano]=2024,
+			    'Projecao Chegadas'[fonte] = "Globaldata"
+			)
+		formatString: 0
+		lineageTag: 1dfe0485-e6a1-4af4-8ef2-63cbba96a6c9
+
+	measure 'Est 2024 Chegadas Oxford' =
+			
+			CALCULATE (
+			    SUM('Projecao Chegadas'[estimativa]), 'Projecao Chegadas'[ano]=2024,
+			    'Projecao Chegadas'[fonte] = "Oxford"
+			)
+		formatString: 0
+		lineageTag: f8920960-fa67-43e2-b36e-4d1e42132e0a
+
+	measure TaxaCrescimento2023_2024Global = ```
+			
+			DIVIDE (
+			    [Est 2024 Chegadas Global] - [Chegadas2024],
+			    [Chegadas2024],
+			    0
+			) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e8a97ac2-9bc2-4968-96c2-f3b40b0847d2
+
+	measure Chegadas2024 =
+			
+			CALCULATE (
+			    SUM (Historico[total]),
+			    Historico[ano] = 2024
+			)
+		formatString: #,0
+		lineageTag: df7f7d7a-4aa2-463d-a6a2-e4ce196cf755
+
+	measure TaxaCrescimento2023_2024Oxford = ```
+			
+			DIVIDE (
+			    [Est 2024 Chegadas Oxford] - [Chegadas2024],
+			    [Chegadas2024],
+			    0
+			) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: b20b6210-d6ba-4bf1-9413-cecb952372ea
+
+	measure 'Chegadas Mes Corrente Ano Anterior' = ```
+			
+			VAR AnoMaisRecente = MAX('dbmtur chegadas_2013_2023'[ano])
+			VAR MesMaisRecente = CALCULATE(MAX('dbmtur chegadas_2013_2023'[mes]), 'dbmtur chegadas_2013_2023'[ano] = AnoMaisRecente)
+			VAR AnoAnterior = AnoMaisRecente - 1
+			RETURN
+			SUMX(
+			    FILTER(
+			        'dbmtur chegadas_2013_2023', 
+			        'dbmtur chegadas_2013_2023'[ano] = AnoAnterior && 'dbmtur chegadas_2013_2023'[mes] = MesMaisRecente
+			    ), 
+			    'dbmtur chegadas_2013_2023'[total_chegadas]
+			)
+			```
+		formatString: #,0
+		lineageTag: 162fba54-948d-4b75-8a7c-c9fcd400e2ef
+
+	measure 'Chegadas Mes Atual' = ```
+			
+			VAR AnoMaisRecente = MAX('dbmtur chegadas_2013_2023'[ano])
+			VAR MesMaisRecente = CALCULATE(MAX('dbmtur chegadas_2013_2023'[mes]), 'dbmtur chegadas_2013_2023'[ano] = AnoMaisRecente)
+			RETURN
+			SUMX(
+			    FILTER(
+			        'dbmtur chegadas_2013_2023', 
+			        'dbmtur chegadas_2013_2023'[ano] = AnoMaisRecente && 'dbmtur chegadas_2013_2023'[mes] = MesMaisRecente
+			    ), 
+			    'dbmtur chegadas_2013_2023'[total_chegadas]
+			)
+			```
+		formatString: #,0
+		lineageTag: f20620c9-b2d7-4518-bc5f-ee513935ba4f
+
+	measure ChegadasAteMesAtual =
+			VAR UltimoMes = [UltimoMesDisponivel2024]
+			RETURN
+			CALCULATE(
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2026,
+			    'dbmtur chegadas_2013_2023'[mes] <= UltimoMes
+			)
+		formatString: #,0
+		lineageTag: b9fb29d2-7760-44e0-b387-1da5ee5377cb
+
+	measure MesAtual2024 =
+			
+			CALCULATE (
+			    MAX ('dbmtur chegadas_2013_2023'[mes]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2024
+			)
+		formatString: 0
+		lineageTag: 8b6e847b-8607-44e2-b793-eedbb8c64f7a
+
+	measure 'Variação Mes Atual Anterior' = Medidas[Chegadas Mes Atual] - Medidas[Chegadas Mes Corrente Ano Anterior]
+		formatString: #,0
+		lineageTag: d721d4e7-351d-4161-9519-07b76ffee032
+
+	measure 'Percentual de Variação Mes Atual' = ```
+			
+			DIVIDE(
+			     Medidas[Variação Mes Atual Anterior], 
+			     Medidas[Chegadas Mes Corrente Ano Anterior],
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 487a0f1b-eee0-481a-a406-58e15e322c2c
+
+	measure 'Est 2024 Chegadas Plano Nacional' =
+			
+			CALCULATE (
+			    SUM('Projecao Chegadas'[estimativa]), 'Projecao Chegadas'[ano]=2024,
+			    'Projecao Chegadas'[fonte] = "Plano Nacional do Turismo"
+			)
+		formatString: 0
+		lineageTag: d7d759ae-0590-4ba1-9eae-fe7469112287
+
+	measure TaxaCrescimento2023_2024PNT = ```
+			
+			DIVIDE (
+			    [Est 2024 Chegadas Plano Nacional] - [Chegadas2024],
+			    [Chegadas2024],
+			    0
+			) 
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 591e3720-01f8-4d7f-8188-268dfee64a4e
+
+	measure 'Total de Chegadas Ano Corrente' =
+			
+			CALCULATE(
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2024
+			)
+		formatString: #,0
+		lineageTag: 2335f421-3176-4c2c-aa7e-d189fe6e3f39
+
+	measure 'Total de Chegadas Ano Anterior' =
+			
+			VAR Meses2024 = VALUES('dbmtur chegadas_2013_2023'[mes])
+			RETURN
+			CALCULATE(
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    FILTER(
+			        ALL('dbmtur chegadas_2013_2023'),
+			        'dbmtur chegadas_2013_2023'[ano] = 2023 &&
+			        'dbmtur chegadas_2013_2023'[mes] IN Meses2024
+			    )
+			)
+		formatString: 0
+		lineageTag: 6828888c-18a9-4475-98be-016120eb945f
+
+	measure 'Variação de Chegadas' = [Total de Chegadas Ano Corrente] - [Total de Chegadas Ano Anterior]
+		formatString: 0
+		lineageTag: 74bfd5ee-4a4d-4f37-b510-2a46bebbedea
+
+	measure 'Total Chegadas 1970' = SUM(Historico[total])
+		formatString: #,0
+		lineageTag: 50b3b52c-3cd1-49b6-8d80-ad3a42eeaeb3
+
+	measure 'Total Chegadas' = Medidas[Total Chegadas 1970] + Medidas[Chegadas Mes Atual]
+		formatString: #,0
+		lineageTag: a603db86-bdea-420e-ad66-6cf4425e1dec
+
+	measure 'Melhor Ano' = ```
+			
+			VAR MelhorAno = 
+			    CALCULATE(
+			        MAXX(
+			            TOPN(1, 'Historico', 'Historico'[total], DESC),
+			            'Historico'[ano]
+			        )
+			    )
+			RETURN
+			FORMAT(MelhorAno, "0")
+			```
+		lineageTag: 5b04af3d-1340-4714-95b3-4d7f0a47c19d
+
+	measure 'Total do Melhor Ano' =
+			
+			CALCULATE(
+			    MAX('Historico'[total]
+			))
+		formatString: #,0
+		lineageTag: 06505014-e277-4514-8566-20c5b1774f85
+
+	measure 'Total Aerea' =
+			
+			CALCULATE (
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[via_de_acesso]="Aérea"
+			)
+		formatString: #,0
+		lineageTag: 17954961-4565-4e94-af3e-7275f06e4677
+
+	measure 'Total Terrestre' =
+			
+			CALCULATE (
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[via_de_acesso]="Terrestre"
+			)
+		formatString: #,0
+		lineageTag: 2cffeff8-38d5-4de7-a37f-dea2299bd21f
+
+	measure 'Total Maritima' =
+			
+			CALCULATE (
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[via_de_acesso]="Marítima"
+			)
+		formatString: #,0
+		lineageTag: efc266c3-c336-4917-bb29-e31a0296782b
+
+	measure 'Total Fluvial' =
+			
+			CALCULATE (
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[via_de_acesso]="Fluvial"
+			)
+		formatString: #,0
+		lineageTag: 25b8846f-24f3-44c7-9e6f-f405a060d985
+
+	measure UltimoMesDisponivel2024 =
+			
+			CALCULATE(
+			    MAX('dbmtur chegadas_2013_2023'[mes]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2024,
+			    REMOVEFILTERS('dbmtur chegadas_2013_2023'[mes])
+			)
+		lineageTag: d8e91712-6e0d-47d5-8213-f334e4cc1c47
+
+	measure ParcialSomaChegadas2023 =
+			
+			VAR UltimoMes2024 = MONTH([UltimoMesDisponivel2024])
+			RETURN
+			CALCULATE(
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2023,
+			    'dbmtur chegadas_2013_2023'[mes] <= UltimoMes2024
+			)
+		formatString: #,0
+		lineageTag: 87886428-6474-4993-af4f-50c0eea1da19
+
+	measure Variacao2024_2025 = Medidas[ChegadasAteMesAtual] - Medidas[ChegadasAteUltimoMes2024]
+		formatString: #,0
+		lineageTag: 6f406fe5-310b-48b5-980b-f744372cb727
+
+	measure ChegadasAteUltimoMes2024 =
+			
+			CALCULATE(
+			    SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2025,
+			    'dbmtur chegadas_2013_2023'[mes] <= 5
+			)
+		formatString: #,0
+		lineageTag: 361c4b9e-ab57-4a23-bfc6-f7ed00dae608
+
+	measure 'Percentual Variação 2024 2025' = ```
+			
+			DIVIDE(
+			     Medidas[Variacao2024_2025], 
+			     Medidas[ChegadasAteUltimoMes2024],
+			    0
+			)
+			```
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: a249e8d1-b851-4d83-83ff-9c8fe6d5170e
+
+	measure 'Porcentagem Aérea' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			        'dbmtur chegadas_2013_2023'[via_de_acesso] = "Aérea"
+			    ),
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas])
+			    ),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 7b632182-db6e-4bea-97b7-b1cd129a9cb9
+
+	measure 'Porcentagem Terrestre' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			        'dbmtur chegadas_2013_2023'[via_de_acesso] = "Terrestre"
+			    ),
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas])
+			    ),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 5d2b909e-0005-4fe9-b605-6a10d2df586e
+
+	measure 'Porcentagem maritima' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			        'dbmtur chegadas_2013_2023'[via_de_acesso] = "Marítima"
+			    ),
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas])
+			    ),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 9a20a331-508a-45a2-a16b-6fc14498f9a2
+
+	measure 'Porcentagem Fluvial' =
+			
+			DIVIDE(
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas]),
+			        'dbmtur chegadas_2013_2023'[via_de_acesso] = "Fluvial"
+			    ),
+			    CALCULATE(
+			        SUM('dbmtur chegadas_2013_2023'[total_chegadas])
+			    ),
+			    0
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: e1a68767-34bf-41ab-a6bc-b280eb51d532
+
+	measure TotalChegadas2023Geral =
+			
+			CALCULATE (
+			    SUM ('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2023
+			)
+		formatString: #,0
+		lineageTag: 3fcddd17-8684-4a1f-841c-b9669121915e
+
+	measure TotalChegadas2024Geral =
+			
+			CALCULATE (
+			    SUM ('dbmtur chegadas_2013_2023'[total_chegadas]),
+			    'dbmtur chegadas_2013_2023'[ano] = 2024
+			)
+		formatString: #,0
+		lineageTag: 7ee809ab-ba1f-4ee6-bb21-8bad305a132b
+
+	measure PercentualCrescimento23-24 =
+			
+			DIVIDE(
+			    [TotalChegadas2024Geral] - [TotalChegadas2023Geral],
+			    [TotalChegadas2023Geral]
+			)
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 085abcdb-1af7-47a2-bf01-b4a84d936f02
+
+	partition Medidas = m
+		mode: import
+		source =
+				let
+				    Fonte = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Coluna 1" = _t]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Coluna 1", type text}}),
+				    #"Colunas Removidas" = Table.RemoveColumns(#"Tipo Alterado",{"Coluna 1"})
+				in
+				    #"Colunas Removidas"
+
+	annotation PBI_ResultType = Table
+

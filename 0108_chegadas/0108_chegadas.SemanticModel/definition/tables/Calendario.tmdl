@@ -1,0 +1,76 @@
+table Calendario
+	lineageTag: c31c617c-cc5a-4a81-8183-d9020f0baa3f
+
+	column Date
+		formatString: General Date
+		lineageTag: 1776f582-6c64-4b98-91f4-a9eceda952b3
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: 813f3cd0-9a43-4cfd-8913-50c5a9a4a893
+			defaultHierarchy: LocalDateTable_3056c404-61cf-4a1a-a147-173edb02a9f2.'Hierarquia de datas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ano
+		formatString: 0
+		lineageTag: f962696d-b886-4380-9ce9-1b6384ed60da
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Ano]
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mês
+		formatString: 0
+		lineageTag: fa7a4256-a4a2-4f26-97a0-9e68c8cd4f16
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Mês]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Abr'
+		lineageTag: fd8e258c-14d3-453d-ae67-f22e80ee9350
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mês Abr]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mês Nome'
+		lineageTag: 0e2b940d-384c-4a6a-a0af-d75aadab04bd
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Mês Nome]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data chegadas'
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8bef159f-a4ff-4ca8-8950-47a608d2c53b
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Data chegadas]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = calculated
+		mode: import
+		source = ```
+				
+				ADDCOLUMNS(
+				    CALENDARAUTO(),
+				    "Ano", YEAR( [Date] ),
+				    "Mês", MONTH( [Date] ),
+				    "Mês Abr", FORMAT( [Date], "mmm" ),
+				    "Mês Nome", FORMAT([Date], "mmmm" ), 
+				    "Data chegadas",  [Date] <= MAX('dbmtur chegadas_2013_2023'[data] )
+				)
+				```
+
+	annotation PBI_Id = 74e440b942ab4359a6cdb5c1d39c5a82
+

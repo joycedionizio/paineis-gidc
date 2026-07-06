@@ -1,0 +1,42 @@
+table dt_atualizacao
+	lineageTag: d55d8505-bade-460f-b407-10e322e6fb10
+
+	measure 'Texto Atualizacao' = ```
+			
+			"Data de atualização: " & 
+			FORMAT(MAX('dt_atualizacao'[data_atualizacao]), "dd") & " de " & 
+			FORMAT(MAX('dt_atualizacao'[data_atualizacao]), "MMMM") & " de " & 
+			FORMAT(MAX('dt_atualizacao'[data_atualizacao]), "yyyy")
+			```
+		lineageTag: d59ff783-b643-42a1-a47c-d5c630c0a2bd
+
+	column data_atualizacao
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 784ebadb-d46f-4b75-bb3b-c67ba5806148
+		summarizeBy: none
+		sourceColumn: data_atualizacao
+
+		variation Variation
+			isDefault
+			relationship: a8f731a3-a004-4f9e-881a-feef349ede8d
+			defaultHierarchy: LocalDateTable_78774f00-814e-4e84-8596-9191fb22156b.'Hierarquia de datas'
+
+		changedProperty = DataType
+
+		annotation SummarizationSetBy = Automatic
+
+	partition dt_atualizacao = m
+		mode: import
+		source =
+				let
+				    Fonte = DateTime.LocalNow(),
+				    #"Convertido para Tabela" = #table(1, {{Fonte}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Convertido para Tabela",{{"Column1", "data_atualizacao"}})
+				in
+				    #"Colunas Renomeadas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
