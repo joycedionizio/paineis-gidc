@@ -1,0 +1,46 @@
+name: Deploy Power BI - Embratur
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publicar-painel:
+    runs-on: windows-latest
+
+    steps:
+      - name: 1. Baixar os arquivos do repositorio
+        uses: actions/checkout@v4
+
+      - name: 2. Instalar Modulo Oficial do Power BI
+        shell: powershell
+        run: |
+          Install-Module -Name MicrosoftPowerBIMgmt -Force -AllowClobber
+
+      - name: 3. Fazer Login e Publicar no Workspace
+        shell: powershell
+        env:
+          PBI_USERNAME: ${{ secrets.PBI_USERNAME }}
+          PBI_PASSWORD: ${{ secrets.PBI_PASSWORD }}
+          WORKSPACE_ID: ${{ secrets.PBI_WORKSPACE_ID }}
+        run: |
+          echo "Criptografando credenciais..."
+          $secPassword = ConvertTo-SecureString $env:PBI_PASSWORD -AsPlainText -Force
+          $cred = New-Object System.Management.Automation.PSCredential ($env:PBI_USERNAME, $secPassword)
+          
+          echo "Fazendo login na conta do Fabio (Pro)..."
+          Connect-PowerBIServiceAccount -Credential $cred
+          
+          echo "Buscando e publicando todos os relatorios .pbix..."
+          # O comando Get-ChildItem procura relatorios em todas as subpastas
+          Get-ChildItem -Path . -Filter *.pbix -Recurse | ForEach-Object {
+              echo "----------------------------------------"
+              echo "Publicando o painel: $($_.Name)"
+              echo "Origem: $($_.FullName)"
+              New-PowerBIReport -Path $_.FullName -WorkspaceId $env:WORKSPACE_ID -ConflictAction CreateOrOverwrite
+          }
+          
+          echo "----------------------------------------"
+          echo "Desconectando com seguranca..."
+          Disconnect-PowerBIServiceAccount
